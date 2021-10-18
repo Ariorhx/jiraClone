@@ -1,0 +1,43 @@
+version: "3.9"
+services:
+  jira_clone:
+    build: .
+    ports:
+      - "8085:8080"
+    container_name: jira_clone
+    networks:
+      jira_network:
+        ipv4_address: 172.16.238.11
+
+  postgres:
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: "jira_clone"
+      POSTGRES_USER: "jira"
+      POSTGRES_PASSWORD: "jiraadmin"
+    ports:
+      - "5434:5432"
+    container_name: postgres
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U jira -d jira_clone" ]
+      interval: 120s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+    networks:
+      jira_network:
+        ipv4_address: 172.16.238.12
+
+networks:
+  jira_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24

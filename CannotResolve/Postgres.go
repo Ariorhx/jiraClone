@@ -1,9 +1,9 @@
 package CannotResolve
 
 import (
-	"JiraClone/Configuration"
 	"database/sql"
 	"fmt"
+	"github.com/Ariorhx/jiraClone/Configuration"
 	_ "github.com/lib/pq"
 	"sync"
 )

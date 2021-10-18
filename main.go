@@ -1,9 +1,9 @@
 package main
 
 import (
-	"JiraClone/CannotResolve"
-	"JiraClone/RestServer"
 	"fmt"
+	"github.com/Ariorhx/jiraClone/CannotResolve"
+	"github.com/Ariorhx/jiraClone/RestServer"
 	"github.com/gorilla/mux"
 )
 

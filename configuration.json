@@ -1,9 +1,9 @@
 {
   "database": {
-    "host": "localhost",
-    "user": "postgres",
-    "password": "postgres",
-    "dbname": "dbname",
+    "host": "172.16.238.12",
+    "user": "gotest",
+    "password": "goTest",
+    "dbname": "go_test_db",
     "sslmode": "disable"
   }
 }

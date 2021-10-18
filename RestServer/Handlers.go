@@ -1,9 +1,9 @@
 package RestServer
 
 import (
-	"JiraClone/CannotResolve"
 	"encoding/json"
 	"fmt"
+	"github.com/Ariorhx/jiraClone/CannotResolve"
 	"github.com/gorilla/mux"
 	"io/ioutil"
 	"net/http"
